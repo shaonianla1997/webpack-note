@@ -7,6 +7,6 @@
 	npm install可以快速安装依赖
 
 #webpack的相关配置
-	npx webpack --config webpackconfig.js 可用于配置打包配置文件
+	npx webpack --config webpack.config.js 可用于配置打包配置文件
 	webpack.config.js是默认的配置文件
 		mode 可以设置打包的模式 可压缩和不可压缩 mode:'production',
