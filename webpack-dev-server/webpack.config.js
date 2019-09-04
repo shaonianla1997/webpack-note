@@ -7,6 +7,10 @@ module.exports = {
 	mode: 'production',
 	entry: './src/index.js',
 	devtool:'source-map',
+	devServer:{
+		contentBase:'./dist',
+		open:true
+	},
 	module: {
 		rules: [{
 			test: /\.(png|jpg|gif)$/,
@@ -39,7 +43,8 @@ module.exports = {
 		template:'src/index.html'
 	}),new CleanWebpackPlugin()],
 	output: {
-		filename: 'bundle.js',
+		publicPath:'/',//配置前置路径
+		filename: 'dist.js',
 		path: path.resolve(__dirname, 'dist')
 	}
 }

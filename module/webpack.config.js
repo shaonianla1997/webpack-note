@@ -1,12 +1,19 @@
 const path = require('path');
-const HtmlWebpackPlugin=require('html-webpack-plugin');
-const { CleanWebpackPlugin } = require("clean-webpack-plugin");
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const {
+	CleanWebpackPlugin
+} = require("clean-webpack-plugin");
 
 
 module.exports = {
 	mode: 'production',
 	entry: './src/index.js',
-	devtool:'source-map',
+	devtool: 'source-map',
+	devServer: {
+		contentBase: './dist',
+		open: true,
+		port: 8080
+	},
 	module: {
 		rules: [{
 			test: /\.(png|jpg|gif)$/,
@@ -33,13 +40,21 @@ module.exports = {
 			use: {
 				loader: 'file-loader'
 			}
+		}, {
+			test: /\.css$/,
+			use: [
+				'style-loader',
+				'css-loader',
+				'postcss-loader'
+			]
 		}]
 	},
-	plugins:[new HtmlWebpackPlugin({
-		template:'src/index.html'
-	}),new CleanWebpackPlugin()],
+	plugins: [new HtmlWebpackPlugin({
+		template: 'src/index.html'
+	}), new CleanWebpackPlugin()],
 	output: {
-		filename: 'bundle.js',
+		publicPath: '/', //配置前置路径
+		filename: 'dist.js',
 		path: path.resolve(__dirname, 'dist')
 	}
 }
