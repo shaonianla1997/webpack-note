@@ -47,7 +47,7 @@ module.exports = {
 				'css-loader',
 				'postcss-loader'
 			]
-		},{
+		}, {
 			test: /\.js$/,
 			exclude: /node_modules/,
 			loader: 'babel-loader',
@@ -61,7 +61,7 @@ module.exports = {
 	}), new CleanWebpackPlugin()],
 	output: {
 		publicPath: '/', //配置前置路径
-		filename: 'main.js',
+		filename: 'dist.js',
 		path: path.resolve(__dirname, 'dist')
 	}
 }

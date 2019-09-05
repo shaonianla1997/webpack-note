@@ -59,6 +59,9 @@ module.exports = {
 	plugins: [new HtmlWebpackPlugin({
 		template: 'src/index.html'
 	}), new CleanWebpackPlugin()],
+	optimization:{
+		usedExports:true
+	},
 	output: {
 		publicPath: '/', //配置前置路径
 		filename: 'main.js',

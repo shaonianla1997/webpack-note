@@ -1,19 +1,8 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const {
-	CleanWebpackPlugin
-} = require("clean-webpack-plugin");
 
-
-module.exports = {
-	mode: 'development',
+module.exports={
 	entry: './src/index.js',
-	devtool: 'cheap-module-eval-source-map',
-	devServer: {
-		contentBase: './dist',
-		open: true,
-		port: 8080
-	},
 	module: {
 		rules: [{
 			test: /\.(png|jpg|gif)$/,
@@ -56,9 +45,6 @@ module.exports = {
 			}
 		}]
 	},
-	plugins: [new HtmlWebpackPlugin({
-		template: 'src/index.html'
-	}), new CleanWebpackPlugin()],
 	output: {
 		publicPath: '/', //配置前置路径
 		filename: 'main.js',

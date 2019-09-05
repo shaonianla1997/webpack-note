@@ -1,5 +1,5 @@
 {
-  "name": "tree-shaking-demo",
+  "name": "babel-demo",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -9,6 +9,11 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@babel/core": "^7.5.5",
+    "@babel/plugin-transform-runtime": "^7.5.5",
+    "@babel/polyfill": "^7.4.4",
+    "@babel/preset-env": "^7.5.5",
+    "babel-loader": "^8.0.6",
     "clean-webpack-plugin": "^3.0.0",
     "express": "^4.17.1",
     "html-webpack-plugin": "^3.2.0",
@@ -16,5 +21,9 @@
     "webpack-cli": "^3.3.7",
     "webpack-dev-middleware": "^3.7.1",
     "webpack-dev-server": "^3.8.0"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.5.5",
+    "@babel/runtime-corejs2": "^7.5.5"
   }
 }

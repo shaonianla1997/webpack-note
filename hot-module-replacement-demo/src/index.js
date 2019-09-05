@@ -1,7 +1,16 @@
 import counter from './counter.js';
+import number from './number.js';
 import './style/style.css';
 
 counter();
+number();
+
+if(module.hot){
+	module.hot.accept('./number',()=>{
+		document.body.removeChild(document.getElementById('number'));
+		number()
+	});
+}
 
 var btn=document.createElement('button');
 btn.innerHTML='新增';

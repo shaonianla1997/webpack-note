@@ -8,7 +8,7 @@ const {
 module.exports = {
 	mode: 'development',
 	entry: './src/index.js',
-	devtool: 'cheap-module-eval-source-map',
+	devtool: 'source-map',
 	devServer: {
 		contentBase: './dist',
 		open: true,
@@ -47,12 +47,15 @@ module.exports = {
 				'css-loader',
 				'postcss-loader'
 			]
-		},{
+		}, {
 			test: /\.js$/,
 			exclude: /node_modules/,
 			loader: 'babel-loader',
 			options: {
-				
+				// 开发项目时配置 组件或库的配置在.babelrc下
+				// presets:[['@babel/preset-env',{
+				// 	useBuiltIns:'usage'
+				// }]]
 			}
 		}]
 	},
@@ -61,7 +64,7 @@ module.exports = {
 	}), new CleanWebpackPlugin()],
 	output: {
 		publicPath: '/', //配置前置路径
-		filename: 'main.js',
+		filename: 'dist.js',
 		path: path.resolve(__dirname, 'dist')
 	}
 }
