@@ -1,10 +1,7 @@
+const merge=require('webpack-merge');
+const commonConfig=require('./webpack.common.js');
 
-const {
-	CleanWebpackPlugin
-} = require("clean-webpack-plugin");
-
-
-module.exports = {
+ const devConfig = {
 	mode: 'development',
 	devtool: 'cheap-module-eval-source-map',
 	devServer: {
@@ -12,10 +9,9 @@ module.exports = {
 		open: true,
 		port: 8080
 	},
-	plugins: [new HtmlWebpackPlugin({
-		template: 'src/index.html'
-	}), new CleanWebpackPlugin()],
 	optimization:{
 		usedExports:true
 	}
 }
+
+module.exports=merge(commonConfig,devConfig);

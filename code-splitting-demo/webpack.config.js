@@ -4,8 +4,19 @@ const {
 	CleanWebpackPlugin
 } = require("clean-webpack-plugin");
 
+
 module.exports = {
-	entry: './src/index.js',
+	mode: 'development',
+	entry: {
+		//lodash: './src/lodash.js',
+		main: './src/index.js'
+	},
+	devtool: 'cheap-module-eval-source-map',
+	devServer: {
+		contentBase: './dist',
+		open: true,
+		port: 8080
+	},
 	module: {
 		rules: [{
 			test: /\.(png|jpg|gif)$/,
@@ -51,9 +62,18 @@ module.exports = {
 	plugins: [new HtmlWebpackPlugin({
 		template: 'src/index.html'
 	}), new CleanWebpackPlugin()],
+	optimization:{
+		splitChunks:{
+			chunks:'all',
+			cacheGroups:{
+				vendors:false,
+				default:false
+			}
+		}
+	},
 	output: {
 		publicPath: '/', //配置前置路径
-		filename: 'main.js',
+		filename: '[name].js',
 		path: path.resolve(__dirname, 'dist')
 	}
 }

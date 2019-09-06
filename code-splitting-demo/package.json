@@ -1,19 +1,17 @@
 {
-  "name": "tree-shaking-demo",
-  "sideEffects": [
-    "*.css"
-  ],
+  "name": "code-splitting-demo",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "webpack-dev-server --config webpack.dev.js",
-    "build": "webpack --config webpack.prod.js"
+    "start": "webpack-dev-server",
+    "build": "webpack"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "@babel/core": "^7.5.5",
+    "@babel/plugin-syntax-dynamic-import": "^7.2.0",
     "@babel/polyfill": "^7.4.4",
     "@babel/preset-env": "^7.5.5",
     "@babel/preset-react": "^7.0.0",
@@ -28,6 +26,7 @@
     "webpack-merge": "^4.2.2"
   },
   "dependencies": {
+    "lodash": "^4.17.15",
     "react": "^16.9.0",
     "react-dom": "^16.9.0"
   }
