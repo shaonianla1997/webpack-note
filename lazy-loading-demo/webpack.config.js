@@ -64,24 +64,7 @@ module.exports = {
 	}), new CleanWebpackPlugin()],
 	optimization: {
 		splitChunks: {
-			chunks: 'all',
-			minSize: 30000,
-			maxSize: 0, // 设置50  如果引入的
-			minChunks: 2,
-			maxAsyncRequests: 5,
-			maxInitialRequests: 3,
-			cacheGroups: {
-				vendors: {
-					test: /[\\/]node_modules[\\/]/,
-					priority: -10,
-					filename: 'vendor.js'
-				},
-				default: {
-					priority: -20,
-					reuseExistingChunk: true,
-					filename: 'test.js'
-				}
-			}
+			chunks: 'all'
 		}
 	},
 	output: {
